@@ -1,0 +1,44 @@
+---
+sidebar_position: 2
+title: SDK Reference
+sidebar_label: API Reference
+description: Rust GDK crate documentation on docs.rs and the shared Python and Kotlin bindings reference.
+---
+
+import GdkApiReference from '@site/src/components/GdkApiReference';
+
+# SDK Reference
+
+## Rust API reference
+
+For Rust, use the native GDK crate documentation on **docs.rs** as the primary
+API reference. These crates expose the full Rust APIs, beyond the shared
+`mayhem-sdk` bindings shown below.
+
+| Crate | API |
+| --- | --- |
+| [`mayhem-agent`](https://docs.rs/mayhem-agent/latest/mayhem_agent/) | Agent state machine, operations, inference, and tools |
+| [`mayhem-providers`](https://docs.rs/mayhem-providers/latest/mayhem_providers/) | Model provider implementations and declarative providers |
+| [`mayhem-provider-types`](https://docs.rs/mayhem-provider-types/latest/mayhem_provider_types/) | Provider traits, messages, model configuration, and shared types |
+| [`mayhem-context-management`](https://docs.rs/mayhem-context-management/latest/mayhem_context_management/) | Conversation compaction and summarization |
+| [`mayhem-local-inference`](https://docs.rs/mayhem-local-inference/latest/mayhem_local_inference/) | On-device model inference and model management |
+| [`mayhem-download-manager`](https://docs.rs/mayhem-download-manager/latest/mayhem_download_manager/) | Model downloads and download progress |
+| [`mayhem-sdk-types`](https://docs.rs/mayhem-sdk-types/latest/mayhem_sdk_types/) | Shared mayhem ACP wire types |
+| [`mayhem-sdk`](https://docs.rs/mayhem-sdk/latest/mayhem_sdk/) | Shared wire type re-exports and optional UniFFI bindings |
+
+The links open the latest published crate documentation. Use the docs.rs version
+selector to match the version in your project.
+
+## Shared bindings reference
+
+The generated reference below covers the `mayhem-sdk` UniFFI API used by Python
+and Kotlin, with Rust signatures also available for that bindings layer. It is
+not the full native Rust GDK API.
+
+Use the toggles to switch language and bindings version — names and types are
+shown using each language's own conventions.
+
+New to the SDK? Start with the [SDK overview](/docs/gdk/sdk) for
+installation and runnable examples.
+
+<GdkApiReference />

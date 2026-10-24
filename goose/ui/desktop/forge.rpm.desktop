@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Mayhem
+Exec=/usr/lib/Mayhem/Mayhem %U
+Icon=/usr/share/pixmaps/Mayhem.png
+Terminal=false
+Type=Application
+Categories=Development;
+MimeType=x-scheme-handler/mayhem;

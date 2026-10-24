@@ -1,0 +1,132 @@
+# AGENTS Instructions
+
+mayhem is an AI agent framework in Rust with CLI and Electron desktop interfaces.
+
+## Contribution Workflow
+
+The issue is the source of truth for work intended for an upstream pull request. Track issue status on the [Mayhem Issues board](https://github.com/orgs/aaif-mayhem/projects/1).
+
+- Before implementing an issue for a pull request, confirm that it is on the board with Status **Ready**.
+- Do not implement issues in **Inbox**, **Needs info**, or **Accepted / design**. Help resolve the issue discussion instead.
+- Read the agreed design, constraints, non-goals, and verification plan before changing code.
+- Keep the implementation within the issue's agreed scope.
+- If implementation reveals a material design change, return to the issue before continuing.
+- Every external pull request must link the Ready issue it implements and explain how the verification plan was performed.
+- Structure new issues on the matching template in `.github/ISSUE_TEMPLATE/` and set the issue type (e.g. Bug, Feature). `gh issue create` does not apply templates automatically.
+
+Maintainer-directed work, urgent security fixes, release automation, and local or exploratory changes do not require a Ready issue.
+
+## MCP Server Directory
+
+mayhem is retiring its project-specific MCP server directory in favor of the [official MCP Registry](https://github.com/modelcontextprotocol/registry) and its `server.json` format.
+
+- Do not add new third-party servers to `documentation/static/servers.json`; these contributions are no longer accepted.
+- Direct server authors to publish to the official MCP Registry instead.
+- Treat the existing mayhem directory as legacy data while registry-backed discovery and installation are implemented.
+- Changes that maintain, migrate, or remove existing directory entries are allowed when they support the migration and are within an approved issue's scope.
+
+See [Discussion #10830](https://github.com/aaif-mayhem/mayhem/discussions/10830) for the decision and migration direction.
+
+## GitHub Communication
+
+Write issue and pull request comments for humans, not as exhaustive work logs.
+
+- Lead with the conclusion or action needed.
+- Keep comments concise; do not repeat context already present in the thread.
+- Use short paragraphs or bullets, and include implementation details only when they affect a decision or review.
+- Prefer one clear summary over multiple incremental comments.
+
+## Setup
+```bash
+source bin/activate-hermit
+cargo build
+```
+
+## Commands
+
+### Build
+```bash
+cargo build                   # debug
+cargo build --release         # release  
+just release-binary           # release binary
+```
+
+### Test
+```bash
+export MAYHEM_DISABLE_KEYRING=1  # avoid system keyring prompts
+cargo test                   # all tests
+cargo test -p mayhem          # specific crate
+cargo test --package mayhem --test mcp_integration_test
+just record-mcp-tests        # record MCP
+```
+
+### Lint/Format
+```bash
+cargo fmt
+cargo clippy --all-targets -- -D warnings
+```
+
+### UI
+```bash
+just run-ui                  # start desktop
+cd ui/desktop && pnpm run typecheck
+cd ui/desktop && pnpm test   # test UI
+```
+
+## Structure
+```
+crates/       # Rust workspace members — see root Cargo.toml (`members = ["crates/*"]`)
+ui/desktop/   # Electron app
+ui/text/      # deprecated ACP TUI (see ui/text/README.md)
+```
+
+Some workspace crates, including those that make up the GDK, are published to crates.io and expose public APIs. The authoritative list of GDK crates is the `release = true`, `version_group = "gdk"` package set in `release-plz.toml`, which drives the GDK release; run `python3 crates/mayhem-sdk/scripts/gdk-release.py crates` to print it. Other crates, such as `mayhem` and `mayhem-cli`, do not provide stable public APIs; their `pub` items are internal implementation details and may change without notice.
+
+## Development Loop
+```bash
+# 1. source bin/activate-hermit
+# 2. Make changes
+# 3. cargo fmt
+```
+
+### Run these only if the user has asked you to build/test your changes:
+```
+# 1. cargo build
+# 2. MAYHEM_DISABLE_KEYRING=1 cargo test -p <crate>
+# 3. cargo clippy --all-targets -- -D warnings
+```
+
+## Rules
+
+- Test: Prefer tests/ folder, e.g. crates/mayhem/tests/
+- Test: When adding features, update mayhem-self-test.yaml, rebuild, then run `mayhem run --recipe mayhem-self-test.yaml` to validate
+- Error: Use anyhow::Result
+- Provider: Implement Provider trait see providers/base.rs
+- MCP: Extensions in crates/mayhem-mcp/
+- UI Desktop: Use ACP SDK types or local `src/types/*` types. Do not import generated OpenAPI types/client code from `ui/desktop/src/api`
+
+## Code Quality
+
+- Comments: Write self-documenting code - prefer clear names over comments
+- Comments: Never add comments that restate what code does
+- Comments: Only comment for complex algorithms, non-obvious business logic, or "why" not "what"
+- Simplicity: Don't make things optional that don't need to be - the compiler will enforce
+- Simplicity: Booleans should default to false, not be optional
+- Errors: Don't add error context that doesn't add useful information (e.g., `.context("Failed to X")` when error already says it failed)
+- Simplicity: Avoid overly defensive code - trust Rust's type system
+- Logging: Clean up existing logs, don't add more unless for errors or security events
+
+## Never
+
+- Never: Recreate `ui/desktop/src/api` or add `@hey-api/openapi-ts` to `ui/desktop`
+- Cargo.toml: For human-authored dependency changes, use `cargo add` instead of manually editing dependency entries unless there is a specific reason not to.
+- Cargo.toml: Automated dependency bump PRs are exempt; when manual edits are necessary, keep `Cargo.lock` consistent.
+- Never: Skip cargo fmt
+- Never: Merge without running clippy
+- Never: Comment self-evident operations (`// Initialize`, `// Return result`), getters/setters, constructors, or standard Rust idioms
+- Never: Overwrite a live binary in place (e.g. `cp`/`fs.copyFileSync` onto an existing executable) - unlink or atomic-rename the destination first, otherwise macOS SIGKILLs running processes with "Code Signature Invalid"
+
+## Entry Points
+- CLI: crates/mayhem-cli/src/main.rs
+- UI: ui/desktop/src/main.ts
+- Agent: crates/mayhem/src/agents/agent.rs

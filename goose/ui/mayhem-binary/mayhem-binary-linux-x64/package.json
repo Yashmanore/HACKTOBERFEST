@@ -1,0 +1,28 @@
+{
+  "name": "@aaif/mayhem-binary-linux-x64",
+  "version": "1.56.0",
+  "description": "Mayhem binary for Linux x64",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaif-mayhem/mayhem.git"
+  },
+  "keywords": [
+    "mayhem",
+    "ai",
+    "agent",
+    "binary"
+  ],
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "bin": {
+    "mayhem-binary-linux-x64": "./bin/mayhem"
+  },
+  "files": [
+    "bin/mayhem"
+  ]
+}

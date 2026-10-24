@@ -1,0 +1,28 @@
+{
+  "name": "@aaif/mayhem-binary-win32-x64",
+  "version": "1.56.0",
+  "description": "Mayhem binary for Windows x64",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaif-mayhem/mayhem.git"
+  },
+  "keywords": [
+    "mayhem",
+    "ai",
+    "agent",
+    "binary"
+  ],
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "bin": {
+    "mayhem-binary-win32-x64": "./bin/mayhem.exe"
+  },
+  "files": [
+    "bin/mayhem.exe"
+  ]
+}
