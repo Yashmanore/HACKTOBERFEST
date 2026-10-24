@@ -210,7 +210,9 @@ mod tests {
             let mut command = Command::new(std::env::current_exe().unwrap());
             command
                 .arg("--exact")
-                .arg("providers::codex_acp::tests::mayhem_mode_validation_precedes_codex_acp_launch")
+                .arg(
+                    "providers::codex_acp::tests::mayhem_mode_validation_precedes_codex_acp_launch",
+                )
                 .arg("--nocapture")
                 .env(CHILD_ENV, "1")
                 .env("MAYHEM_SEARCH_PATHS", &search_paths)

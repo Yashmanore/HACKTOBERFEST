@@ -1797,7 +1797,9 @@ impl MayhemAcpAgent {
             mayhem_client_capabilities.as_ref(),
         ));
         let _ = self.client_supports_mayhem_custom_notifications.set(
-            extract_client_supports_mayhem_custom_notifications(mayhem_client_capabilities.as_ref()),
+            extract_client_supports_mayhem_custom_notifications(
+                mayhem_client_capabilities.as_ref(),
+            ),
         );
         let _ = self.client_supports_recipe_param_requests.set(
             extract_client_supports_recipe_param_requests(mayhem_client_capabilities.as_ref()),

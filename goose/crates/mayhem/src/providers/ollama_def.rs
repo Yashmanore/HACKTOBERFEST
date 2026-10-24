@@ -59,6 +59,16 @@ impl ProviderDef for OllamaProviderDef {
 pub async fn from_env(
     tls_config: Option<crate::providers::api_client::TlsConfig>,
 ) -> Result<OllamaProvider> {
+    Ok(OllamaProviderBuilder::new(api_client_from_env(tls_config)?)
+        .name(OLLAMA_PROVIDER_NAME)
+        .options(options_from_config())
+        .build())
+}
+
+/// The API client for the configured `OLLAMA_HOST`, shared with the model router.
+pub(crate) fn api_client_from_env(
+    tls_config: Option<crate::providers::api_client::TlsConfig>,
+) -> Result<ApiClient> {
     let config = crate::config::Config::global();
     let host: String = config
         .get_param("OLLAMA_HOST")
@@ -84,18 +94,13 @@ pub async fn from_env(
             .map_err(|_| anyhow::anyhow!("Failed to set default port"))?;
     }
 
-    let api_client = ApiClient::with_timeout_and_tls(
+    Ok(ApiClient::with_timeout_and_tls(
         base_url.to_string(),
         AuthMethod::NoAuth,
         timeout,
         tls_config,
     )?
-    .with_request_builder(session_id_request_builder());
-
-    Ok(OllamaProviderBuilder::new(api_client)
-        .name(OLLAMA_PROVIDER_NAME)
-        .options(options_from_config())
-        .build())
+    .with_request_builder(session_id_request_builder()))
 }
 
 pub fn from_custom_config(

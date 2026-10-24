@@ -21,12 +21,12 @@ pub mod download_manager;
 pub mod elicitation;
 pub mod execution;
 pub mod gateway;
-pub mod mayhem_apps;
 pub mod hints;
 pub mod hooks;
 pub mod instance_id;
 mod live_voice;
 pub mod logging;
+pub mod mayhem_apps;
 pub mod mcp_utils;
 #[cfg(feature = "online-model-meta")]
 pub mod model_catalog;

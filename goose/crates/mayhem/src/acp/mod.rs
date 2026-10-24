@@ -71,7 +71,9 @@ mod tests {
         let config =
             crate::config::Config::new(directory.path().join("config.yaml"), "test").unwrap();
         config.set_mayhem_provider("pi-acp").unwrap();
-        config.set_mayhem_model("anthropic/claude-sonnet-4").unwrap();
+        config
+            .set_mayhem_model("anthropic/claude-sonnet-4")
+            .unwrap();
 
         assert_eq!(
             configured_model_for_provider(&config, "pi-acp"),

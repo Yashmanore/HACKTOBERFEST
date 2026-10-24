@@ -1,6 +1,6 @@
 use crate::acp::server::{
-    AcpBuiltinSelection, AcpProviderFactory, ActiveRunRegistry, MayhemAcpAgent,
-    MayhemAcpAgentOptions, LiveVoiceService,
+    AcpBuiltinSelection, AcpProviderFactory, ActiveRunRegistry, LiveVoiceService, MayhemAcpAgent,
+    MayhemAcpAgentOptions,
 };
 use crate::agents::MayhemPlatform;
 use crate::config::paths::Paths;

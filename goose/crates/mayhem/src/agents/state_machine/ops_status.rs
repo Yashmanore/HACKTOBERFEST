@@ -6,8 +6,8 @@ use mayhem_providers::base::Provider;
 use mayhem_providers::model::ModelConfig;
 
 use crate::agents::state_machine::{
-    messages_since_kickoff, not_applicable, yielded_with, ConversationEffect, Emitter, MayhemEffect,
-    Operation, OperationResult, SlashCommand,
+    messages_since_kickoff, not_applicable, yielded_with, ConversationEffect, Emitter,
+    MayhemEffect, Operation, OperationResult, SlashCommand,
 };
 use crate::conversation::message::Message;
 use crate::conversation::Conversation;

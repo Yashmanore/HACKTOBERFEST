@@ -3,7 +3,7 @@ use std::sync::Arc;
 use anyhow::Result;
 use async_trait::async_trait;
 use mayhem::agents::state_machine::{
-    yielded_with, Emitter, MayhemEffect, Inference, InferenceInput, Operation, OperationResult,
+    yielded_with, Emitter, Inference, InferenceInput, MayhemEffect, Operation, OperationResult,
     RunStatus, StateMachine, Step,
 };
 use mayhem::agents::AgentEvent;

@@ -270,7 +270,10 @@ fn candidate_id(prefix: &str, path: &Path) -> String {
 
 fn parse_candidate_id(id: &str) -> Option<(OnboardingImportSourceKind, PathBuf)> {
     if let Some(path) = id.strip_prefix(MAYHEM_CONFIG_PREFIX) {
-        return Some((OnboardingImportSourceKind::MayhemConfig, PathBuf::from(path)));
+        return Some((
+            OnboardingImportSourceKind::MayhemConfig,
+            PathBuf::from(path),
+        ));
     }
     if let Some(path) = id.strip_prefix(CLAUDE_DESKTOP_PREFIX) {
         return Some((

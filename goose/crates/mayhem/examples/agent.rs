@@ -13,8 +13,10 @@ async fn main() -> anyhow::Result<()> {
     let _ = dotenv();
 
     let provider = create("databricks", Vec::new()).await?;
-    let model_config =
-        mayhem::model_config::model_config_from_user_config("databricks", DATABRICKS_DEFAULT_MODEL)?;
+    let model_config = mayhem::model_config::model_config_from_user_config(
+        "databricks",
+        DATABRICKS_DEFAULT_MODEL,
+    )?;
 
     let agent = Agent::new();
 

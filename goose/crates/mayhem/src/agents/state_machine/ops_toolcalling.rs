@@ -1102,7 +1102,12 @@ impl Operation<Session, MayhemEffect> for ToolExecutionOperation {
         let (actions, response) = self.take_batch();
         let response = response.ok_or_else(|| anyhow!("tool batch produced no responses"))?;
         emit.emit(AgentEvent::Message(response.user_visible_content()));
-        applied(actions.into_iter().chain([response]).map(MayhemEffect::from))
+        applied(
+            actions
+                .into_iter()
+                .chain([response])
+                .map(MayhemEffect::from),
+        )
     }
 }
 

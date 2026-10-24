@@ -55,7 +55,10 @@ impl Provider for RecordingProvider {
         self.inner.provider_session_id()
     }
 
-    async fn resume(&self, session_id: &str) -> Result<(), mayhem_providers::errors::ProviderError> {
+    async fn resume(
+        &self,
+        session_id: &str,
+    ) -> Result<(), mayhem_providers::errors::ProviderError> {
         self.inner.resume(session_id).await
     }
 
@@ -65,7 +68,8 @@ impl Provider for RecordingProvider {
         system: &str,
         messages: &[Message],
         tools: &[rmcp::model::Tool],
-    ) -> Result<crate::providers::base::MessageStream, mayhem_providers::errors::ProviderError> {
+    ) -> Result<crate::providers::base::MessageStream, mayhem_providers::errors::ProviderError>
+    {
         self.model_configs
             .lock()
             .unwrap()
@@ -103,7 +107,8 @@ impl Provider for FeatureProvider {
         system: &str,
         messages: &[Message],
         tools: &[rmcp::model::Tool],
-    ) -> Result<crate::providers::base::MessageStream, mayhem_providers::errors::ProviderError> {
+    ) -> Result<crate::providers::base::MessageStream, mayhem_providers::errors::ProviderError>
+    {
         self.inner
             .stream(model_config, system, messages, tools)
             .await

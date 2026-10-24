@@ -53,7 +53,8 @@ impl MayhemAcpAgent {
         self.render_stored_recipe_template(&mut mayhem_session)
             .await?;
 
-        let (agent, extension_results) = self.prepare_acp_session_agent(cx, &mayhem_session).await?;
+        let (agent, extension_results) =
+            self.prepare_acp_session_agent(cx, &mayhem_session).await?;
         self.register_acp_session(mayhem_session.id.clone(), agent.clone())
             .await;
         let provider = agent

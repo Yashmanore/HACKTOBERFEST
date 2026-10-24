@@ -45,6 +45,7 @@ use crate::providers::muse_code_def::{MuseCodeProvider, MuseCodeProviderDef};
 use crate::providers::ollama_def::OllamaProviderDef;
 use crate::providers::openai_def::OpenAiProviderDef;
 use crate::providers::openrouter_def::OpenRouterProviderDef;
+use crate::providers::router::RouterProviderDef;
 use crate::{
     config::declarative_providers::register_declarative_providers,
     providers::provider_registry::ProviderEntry,
@@ -157,6 +158,7 @@ async fn init_registry() -> RwLock<ProviderRegistry> {
             true,
             Some(registrations::ollama_inventory()),
         );
+        registry.register::<RouterProviderDef>(true);
         registry.register_with_inventory::<OpenAiProviderDef>(
             true,
             Some(registrations::openai_inventory()),

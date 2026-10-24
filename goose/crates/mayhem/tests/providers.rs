@@ -3,7 +3,9 @@ use dotenvy::dotenv;
 use futures::StreamExt;
 use mayhem::acp::ACP_CURRENT_MODEL;
 use mayhem::agents::extension_manager::CallRequest;
-use mayhem::agents::{Agent, AgentConfig, AgentEvent, MayhemPlatform, PromptManager, SessionConfig};
+use mayhem::agents::{
+    Agent, AgentConfig, AgentEvent, MayhemPlatform, PromptManager, SessionConfig,
+};
 use mayhem::config::{ExtensionConfig, MayhemMode, PermissionManager};
 use mayhem::conversation::message::{ActionRequiredData, Message, MessageContent};
 use mayhem::permission::Permission;
@@ -724,7 +726,10 @@ async fn test_provider(config: ProviderTestConfig) -> Result<()> {
                 .await?;
         }
         if config.model_switch_name.is_some() {
-            run_test(MayhemMode::Auto).await?.test_model_switch().await?;
+            run_test(MayhemMode::Auto)
+                .await?
+                .test_model_switch()
+                .await?;
         }
         if config.test_context_length_exceeded {
             run_test(MayhemMode::Auto)

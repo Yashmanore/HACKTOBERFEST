@@ -284,7 +284,8 @@ mod tests {
         let session = manager.get_session(session_id, true).await?;
         let conversation = session.conversation.as_ref().unwrap();
         let result =
-            Operation::<Session, MayhemEffect>::run(operation, &session, conversation, emit).await?;
+            Operation::<Session, MayhemEffect>::run(operation, &session, conversation, emit)
+                .await?;
         Ok((session, result))
     }
 
