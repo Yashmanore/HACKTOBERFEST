@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { PanelLeft } from 'lucide-react';
 import { defineMessages, useIntl } from '../../i18n';
 import { Button } from '../ui/button';
+import MayhemLogo from '../MayhemLogo';
 import ChatSessionsContainer from '../ChatSessionsContainer';
 import { useChatContext } from '../../contexts/ChatContext';
 import { NavigationProvider, useNavigationContext } from './NavigationContext';
@@ -137,6 +138,10 @@ const AppLayoutContent: React.FC<AppLayoutContentProps> = ({ activeSessions, liv
         >
           <PanelLeft className="w-5 h-5" />
         </Button>
+        <div className="no-drag flex items-center gap-2 select-none">
+          <MayhemLogo size="small" hover={false} className="!size-6 !rounded-md shadow-none" />
+          <span className="text-sm font-semibold tracking-wide text-text-primary">Mayhem</span>
+        </div>
       </div>
 
       {/* Main content with navigation. Shared white canvas; the sidebar is a
