@@ -99,3 +99,6 @@ mayhemselftest/
 /crates/mayhem-sdk/examples/uniffi/kotlin/build/
 
 live-in-desktop-design
+
+# Stale build output left over from the rename
+ui/goose-acp-client/
