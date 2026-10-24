@@ -4768,5 +4768,8 @@
   },
   "settings.agentLoop.title": {
     "defaultMessage": "Bucle del agente"
+  },
+  "themeSelector.mayhem": {
+    "defaultMessage": "Mayhem"
   }
 }

@@ -4768,5 +4768,8 @@
   },
   "settings.agentLoop.title": {
     "defaultMessage": "Цикл агента"
+  },
+  "themeSelector.mayhem": {
+    "defaultMessage": "Mayhem"
   }
 }

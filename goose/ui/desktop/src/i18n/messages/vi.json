@@ -4768,5 +4768,8 @@
   },
   "settings.agentLoop.title": {
     "defaultMessage": "Vòng lặp tác nhân"
+  },
+  "themeSelector.mayhem": {
+    "defaultMessage": "Mayhem"
   }
 }

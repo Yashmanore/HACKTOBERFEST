@@ -3,7 +3,7 @@ import { applyThemeTokens, buildMcpHostStyles, themes } from '../theme/theme-tok
 import type { ThemeId, ThemeVariant } from '../theme/theme-tokens';
 import type { McpUiHostStyles } from '@modelcontextprotocol/ext-apps/app-bridge';
 
-type ThemePreference = 'light' | 'dark' | 'aura' | 'system';
+type ThemePreference = 'light' | 'dark' | 'aura' | 'mayhem' | 'system';
 type ResolvedTheme = ThemeVariant;
 
 interface ThemeContextValue {
@@ -21,7 +21,7 @@ function getSystemTheme(): ResolvedTheme {
 }
 
 // Resolve a user preference to a concrete theme id. 'system' picks the light or
-// dark built-in from the OS; named themes (light/dark/aura) map to themselves.
+// dark built-in from the OS; named themes map to themselves.
 function resolveThemeId(preference: ThemePreference): ThemeId {
   if (preference === 'system') {
     return getSystemTheme();

@@ -4768,5 +4768,8 @@
   },
   "settings.agentLoop.title": {
     "defaultMessage": "代理循环"
+  },
+  "themeSelector.mayhem": {
+    "defaultMessage": "Mayhem"
   }
 }

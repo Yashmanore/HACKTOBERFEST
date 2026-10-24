@@ -271,13 +271,39 @@ export const lightTokens: ThemeTokens = { ...baseTokens, ...lightColorTokens };
 export const darkTokens: ThemeTokens = { ...baseTokens, ...darkColorTokens };
 export const auraTokens: ThemeTokens = { ...baseTokens, ...auraFontTokens, ...auraColorTokens };
 
+// Mayhem's signature palette: graphite surfaces with vivid emerald accents.
+const mayhemColorTokens: ColorTokens = {
+  ...auraColorTokens,
+  '--color-background-primary': '#101714',
+  '--color-background-secondary': '#18231d',
+  '--color-background-tertiary': '#203129',
+  '--color-background-inverse': '#39e58c',
+  '--color-background-success': '#39e58c',
+  '--color-text-primary': '#edf7f0',
+  '--color-text-secondary': '#9aada1',
+  '--color-text-inverse': '#08110c',
+  '--color-text-success': '#39e58c',
+  '--color-border-primary': '#26372d',
+  '--color-border-secondary': '#385242',
+  '--color-border-tertiary': '#45634f',
+  '--color-border-inverse': '#39e58c',
+  '--color-border-success': '#39e58c',
+  '--color-ring-primary': '#385242',
+  '--color-ring-success': '#39e58c',
+};
+export const mayhemTokens: ThemeTokens = {
+  ...baseTokens,
+  ...auraFontTokens,
+  ...mayhemColorTokens,
+};
+
 // ---------------------------------------------------------------------------
 // Theme registry — the set of selectable named themes.
 // `variant` drives the .dark/.light class and colorScheme for anything outside
 // the token system; `tokens` is the map applied to :root. Adding a future theme
 // is a single entry here plus its token map above.
 // ---------------------------------------------------------------------------
-export type ThemeId = 'light' | 'dark' | 'aura';
+export type ThemeId = 'light' | 'dark' | 'aura' | 'mayhem';
 export type ThemeVariant = 'light' | 'dark';
 
 interface ThemeDefinition {
@@ -289,6 +315,7 @@ export const themes: Record<ThemeId, ThemeDefinition> = {
   light: { variant: 'light', tokens: lightTokens },
   dark: { variant: 'dark', tokens: darkTokens },
   aura: { variant: 'dark', tokens: auraTokens },
+  mayhem: { variant: 'dark', tokens: mayhemTokens },
 };
 
 // ---------------------------------------------------------------------------
@@ -364,6 +391,7 @@ export function getResolvedTheme(): ThemeId {
   }
   const stored = localStorage.getItem('theme');
   if (stored === 'aura') return 'aura';
+  if (stored === 'mayhem') return 'mayhem';
   return stored === 'dark' ? 'dark' : 'light';
 }
 

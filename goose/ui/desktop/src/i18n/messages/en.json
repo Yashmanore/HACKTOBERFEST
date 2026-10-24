@@ -1280,66 +1280,6 @@
   "gitBranchIndicator.uncommittedChanges": {
     "defaultMessage": "You may have uncommitted changes."
   },
-  "mayhemhintsModal.close": {
-    "defaultMessage": "Close"
-  },
-  "mayhemhintsModal.developer": {
-    "defaultMessage": "Developer"
-  },
-  "mayhemhintsModal.dialogDescription": {
-    "defaultMessage": "Provide additional context about your project to improve communication with Mayhem"
-  },
-  "mayhemhintsModal.dialogTitle": {
-    "defaultMessage": "Configure Project Hints (.mayhemhints)"
-  },
-  "mayhemhintsModal.errorReading": {
-    "defaultMessage": "Error reading .mayhemhints file: {error}"
-  },
-  "mayhemhintsModal.failedToAccess": {
-    "defaultMessage": "Failed to access .mayhemhints file"
-  },
-  "mayhemhintsModal.failedToSave": {
-    "defaultMessage": "Failed to save .mayhemhints file"
-  },
-  "mayhemhintsModal.fileCreating": {
-    "defaultMessage": "Creating new .mayhemhints file at: {filePath}"
-  },
-  "mayhemhintsModal.fileFound": {
-    "defaultMessage": ".mayhemhints file found at: {filePath}"
-  },
-  "mayhemhintsModal.helpText1": {
-    "defaultMessage": ".mayhemhints is a text file used to provide additional context about your project and improve the communication with Mayhem."
-  },
-  "mayhemhintsModal.helpText2": {
-    "defaultMessage": "Please make sure {bold} extension is enabled in the extensions page. This extension is required to use .mayhemhints. You'll need to restart your session for .mayhemhints updates to take effect."
-  },
-  "mayhemhintsModal.helpText3": {
-    "defaultMessage": "See {link} for more information."
-  },
-  "mayhemhintsModal.helpTextLink": {
-    "defaultMessage": "using .mayhemhints"
-  },
-  "mayhemhintsModal.placeholder": {
-    "defaultMessage": "Enter project hints here..."
-  },
-  "mayhemhintsModal.save": {
-    "defaultMessage": "Save"
-  },
-  "mayhemhintsModal.savedSuccessfully": {
-    "defaultMessage": "Saved successfully"
-  },
-  "mayhemhintsModal.saving": {
-    "defaultMessage": "Saving..."
-  },
-  "mayhemhintsSection.configure": {
-    "defaultMessage": "Configure"
-  },
-  "mayhemhintsSection.description": {
-    "defaultMessage": "Configure your project's .mayhemhints file to provide additional context to Mayhem"
-  },
-  "mayhemhintsSection.title": {
-    "defaultMessage": "Project Hints (.mayhemhints)"
-  },
   "groupedExtensionLoadingToast.askMayhem": {
     "defaultMessage": "Ask mayhem"
   },
@@ -1957,6 +1897,66 @@
   },
   "markdownContent.noApplicationFound": {
     "defaultMessage": "No application found to open this link."
+  },
+  "mayhemhintsModal.close": {
+    "defaultMessage": "Close"
+  },
+  "mayhemhintsModal.developer": {
+    "defaultMessage": "Developer"
+  },
+  "mayhemhintsModal.dialogDescription": {
+    "defaultMessage": "Provide additional context about your project to improve communication with Mayhem"
+  },
+  "mayhemhintsModal.dialogTitle": {
+    "defaultMessage": "Configure Project Hints (.mayhemhints)"
+  },
+  "mayhemhintsModal.errorReading": {
+    "defaultMessage": "Error reading .mayhemhints file: {error}"
+  },
+  "mayhemhintsModal.failedToAccess": {
+    "defaultMessage": "Failed to access .mayhemhints file"
+  },
+  "mayhemhintsModal.failedToSave": {
+    "defaultMessage": "Failed to save .mayhemhints file"
+  },
+  "mayhemhintsModal.fileCreating": {
+    "defaultMessage": "Creating new .mayhemhints file at: {filePath}"
+  },
+  "mayhemhintsModal.fileFound": {
+    "defaultMessage": ".mayhemhints file found at: {filePath}"
+  },
+  "mayhemhintsModal.helpText1": {
+    "defaultMessage": ".mayhemhints is a text file used to provide additional context about your project and improve the communication with Mayhem."
+  },
+  "mayhemhintsModal.helpText2": {
+    "defaultMessage": "Please make sure {bold} extension is enabled in the extensions page. This extension is required to use .mayhemhints. You'll need to restart your session for .mayhemhints updates to take effect."
+  },
+  "mayhemhintsModal.helpText3": {
+    "defaultMessage": "See {link} for more information."
+  },
+  "mayhemhintsModal.helpTextLink": {
+    "defaultMessage": "using .mayhemhints"
+  },
+  "mayhemhintsModal.placeholder": {
+    "defaultMessage": "Enter project hints here..."
+  },
+  "mayhemhintsModal.save": {
+    "defaultMessage": "Save"
+  },
+  "mayhemhintsModal.savedSuccessfully": {
+    "defaultMessage": "Saved successfully"
+  },
+  "mayhemhintsModal.saving": {
+    "defaultMessage": "Saving..."
+  },
+  "mayhemhintsSection.configure": {
+    "defaultMessage": "Configure"
+  },
+  "mayhemhintsSection.description": {
+    "defaultMessage": "Configure your project's .mayhemhints file to provide additional context to Mayhem"
+  },
+  "mayhemhintsSection.title": {
+    "defaultMessage": "Project Hints (.mayhemhints)"
   },
   "mcpAppRenderer.appFallbackTitle": {
     "defaultMessage": "App"
@@ -4594,6 +4594,9 @@
   },
   "themeSelector.light": {
     "defaultMessage": "Light"
+  },
+  "themeSelector.mayhem": {
+    "defaultMessage": "Mayhem"
   },
   "themeSelector.system": {
     "defaultMessage": "System"

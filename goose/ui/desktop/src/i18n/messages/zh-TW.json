@@ -4768,5 +4768,8 @@
   },
   "settings.agentLoop.title": {
     "defaultMessage": "代理程式迴圈"
+  },
+  "themeSelector.mayhem": {
+    "defaultMessage": "Mayhem"
   }
 }

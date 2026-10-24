@@ -1,5 +1,5 @@
 import React from 'react';
-import { Moon, Sliders, Sparkles, Sun } from 'lucide-react';
+import { Moon, Sliders, Sparkles, Sun, Zap } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useTheme } from '../../contexts/ThemeContext';
 import { defineMessages, useIntl } from '../../i18n';
@@ -20,6 +20,10 @@ const i18n = defineMessages({
   aura: {
     id: 'themeSelector.aura',
     defaultMessage: 'Aura',
+  },
+  mayhem: {
+    id: 'themeSelector.mayhem',
+    defaultMessage: 'Mayhem',
   },
   system: {
     id: 'themeSelector.system',
@@ -43,7 +47,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ className, hideTitle, hor
         <div className="text-xs text-text-primary px-3">{intl.formatMessage(i18n.theme)}</div>
       )}
       <div
-        className={`${horizontal ? 'flex' : 'grid grid-cols-4'} gap-1 ${!horizontal ? 'px-3' : ''}`}
+        className={`${horizontal ? 'flex flex-wrap' : 'grid grid-cols-3'} gap-1 ${!horizontal ? 'px-3' : ''}`}
       >
         <Button
           data-testid="light-mode-button"
@@ -58,6 +62,21 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({ className, hideTitle, hor
         >
           <Sun className="h-3 w-3" />
           <span>{intl.formatMessage(i18n.light)}</span>
+        </Button>
+
+        <Button
+          data-testid="mayhem-mode-button"
+          onClick={() => setUserThemePreference('mayhem')}
+          className={`flex items-center justify-center gap-1 p-2 rounded-md border transition-colors text-xs ${
+            userThemePreference === 'mayhem'
+              ? 'bg-background-inverse text-text-inverse border-text-inverse hover:!bg-background-inverse hover:!text-text-inverse'
+              : 'border-border-primary hover:!bg-background-secondary text-text-secondary hover:text-text-primary'
+          }`}
+          variant="ghost"
+          size="sm"
+        >
+          <Zap className="h-3 w-3" />
+          <span>{intl.formatMessage(i18n.mayhem)}</span>
         </Button>
 
         <Button
